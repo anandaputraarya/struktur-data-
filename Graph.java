@@ -1,10 +1,10 @@
 import java.util.*;
 
 class Graph {
-    private int V; // Jumlah node/vertex
-    private List<List<Node>> adjList; // Representasi adjacency list
+    private int V; 
+    private List<List<Node>> adjList; 
 
-    // Kelas untuk merepresentasikan node
+ 
     class Node {
         int vertex, weight;
 
@@ -21,13 +21,13 @@ class Graph {
             adjList.add(new ArrayList<>());
     }
 
-    // Menambahkan edge ke graph
+
     public void addEdge(int u, int v, int weight) {
         adjList.get(u).add(new Node(v, weight));
-        adjList.get(v).add(new Node(u, weight)); // Jika graph adalah undirected
+        adjList.get(v).add(new Node(u, weight)); 
     }
 
-    // Algoritma Dijkstra untuk mencari shortest path
+ 
     public void dijkstra(int source) {
         PriorityQueue<Node> minHeap = new PriorityQueue<>(Comparator.comparingInt(node -> node.weight));
         int[] distance = new int[V];
@@ -50,7 +50,7 @@ class Graph {
             }
         }
 
-        // Menampilkan hasil shortest path
+   
         System.out.println("Shortest distances from source " + source + ":");
         for (int i = 0; i < V; ++i) {
             if (distance[i] != Integer.MAX_VALUE) {
